@@ -11,7 +11,7 @@ require("./startup/db")();
 
 require("./startup/routes")(app);
 app.use(error);
-const port = process.env.PORT || 666;
+const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   startDebug(`Lisening on port ${port}`);
 });
