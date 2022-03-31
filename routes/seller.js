@@ -16,7 +16,7 @@ route.post("/", auth, async (req, res) => {
   startDebug(seller);
 });
 
-route.get("/", async (req, res) => {
+route.get("/", async (res) => {
   res.send(await Seller.find());
 });
 route.get("/:id", validDateObjectId, async (req, res) => {

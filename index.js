@@ -14,6 +14,5 @@ app.use(error);
 const port = process.env.PORT || 666;
 const server = app.listen(port, () => {
   startDebug(`Lisening on port ${port}`);
-  startDebug(`Environment: ${process.env.NODE_ENV}`);
 });
 module.exports = server;

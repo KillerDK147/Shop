@@ -14,7 +14,6 @@ describe("/api/seller", () => {
     await Seller.deleteMany({});
     await server.close();
   });
-
   describe("GET", () => {
     it("should return all famers", async () => {
       try {
@@ -86,6 +85,9 @@ describe("POST /", () => {
       tlf: "12345678",
       email: "aaa@example.com",
     };
+  });
+  afterAll(async () => {
+    await mongoose.connection.close();
   });
   it("should return 401 if the user is not logged in", async () => {
     token = "";
