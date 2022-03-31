@@ -7,8 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "jest": "jest --watchAll --verbose --maxWorkers=1",
-    "test": "cucumber-js test/features",
+    "test": "jest --verbose --maxWorkers=1",
     "start": "node index.js"
   },
   "author": "mr.negativ",
