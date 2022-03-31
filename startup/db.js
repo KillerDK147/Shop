@@ -10,5 +10,5 @@ module.exports = function () {
       useNewUrlParser: true,
     })
     .then(() => dbDebug(`Connect to ${db}`))
-    .catch((err) => dbDebug("db Error" + err));
+    .catch((err) => dbDebug("db Error: " + err));
 };

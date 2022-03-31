@@ -39,6 +39,7 @@ describe("/api/seller", () => {
         console.log(err);
       }
       const res = await request(server).get("/api/seller");
+      console.log("Status code: " + res.status);
       expect(res.statusCode).toBe(200);
       expect(res.body.some((f) => f.navn === "aaa")).toBeTruthy();
     });
