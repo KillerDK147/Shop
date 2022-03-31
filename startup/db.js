@@ -9,5 +9,6 @@ module.exports = function () {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     })
-    .then(() => dbDebug(`Connect to ${db}`));
+    .then(() => dbDebug(`Connect to ${db}`))
+    .catch((err) => dbDebug("db Error" + err));
 };
