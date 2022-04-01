@@ -13,7 +13,7 @@ require("./startup/routes")(app);
 app.use(error);
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("hello my name is mr.negativ");
 });
 const port = process.env.PORT || 6666;
 const server = app.listen(port, () => {
