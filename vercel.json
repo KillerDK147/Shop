@@ -1,5 +1,7 @@
 {
   "version": 2,
   "name": "name-of-your-vercel-app",
-  "run": "npm start"
+  "scripts": {
+    "start": "node index.js"
+  }
 }
