@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "name": "name-of-your-vercel-app",
-  "scripts": {
-    "start": "node index.js"
-  }
-}
