@@ -16,8 +16,7 @@ app.get("/", (req, res) => {
   res.send("hello my name is mr.negativ");
 });
 const port = process.env.PORT || 6666;
-const ip = process.env.IP;
 const server = app.listen(port, () => {
-  startDebug(`Lisening on port ${port}` + `And ` + `${ip}`);
+  startDebug(`Lisening on port ${port}`);
 });
 module.exports = server;

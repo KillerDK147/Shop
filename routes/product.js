@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const isValidObjectId = require("../middelware/validDateObjectId");
 const auth = require("../middelware/auth");
 
-route.get("/", auth, async (req, res) => {
+route.get("/", async (req, res) => {
   res.send(await Produkt.find());
 });
 
