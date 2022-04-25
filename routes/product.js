@@ -10,6 +10,7 @@ route.get("/", async (req, res) => {
 });
 
 route.post("/", auth, async (req, res) => {
+  console.log(req.body.titel);
   const { error } = validate(req.body);
   if (error) res.status(400).send(error.message);
   const prod = new Produkt({ ...req.body });
