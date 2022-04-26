@@ -8,14 +8,15 @@ const UserScema = new mongoose.Schema({
   navn: { type: String, required: true },
   Email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  acces: ["admin", "seller,client"],
+  acces: { type: String, required: true, default: "client" },
+  // acces: ["admin", "seller","client"],
 });
 
 UserScema.methods.gernerateAuthToken = function () {
   const token = jwt.sign(
     {
       _id: this._id,
-      acces: this.access,
+      acces: this.acces,
     },
     config.get("token")
   );
