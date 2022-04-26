@@ -17,7 +17,7 @@ route.post("/reg", async (req, res) => {
   const token = jwt.sign(
     {
       _id: user.id,
-      access_token: user.access,
+      access_token: user.acces,
     },
     config.get("token")
   );

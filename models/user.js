@@ -8,14 +8,14 @@ const UserScema = new mongoose.Schema({
   navn: { type: String, required: true },
   Email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  access: ["admin", "seller,client"],
+  acces: ["admin", "seller,client"],
 });
 
 UserScema.methods.gernerateAuthToken = function () {
   const token = jwt.sign(
     {
       _id: this._id,
-      access: this.access,
+      acces: this.access,
     },
     config.get("token")
   );
@@ -29,7 +29,7 @@ function validate(user) {
     navn: Joi.string().required(),
     Email: Joi.string().required(),
     password: Joi.string().required(),
-    access: Joi.string().valid("admin", "seller", "client").required(),
+    acces: Joi.string().valid("admin", "seller", "client").required(),
   });
   return schema.validate(user);
 }
