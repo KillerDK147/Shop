@@ -8,7 +8,7 @@ const UserScema = new mongoose.Schema({
   navn: { type: String, required: true },
   Email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  acces: ["admin", "seller,client"],
+  access: ["admin", "seller,client"],
 });
 
 UserScema.methods.gernerateAuthToken = function () {
@@ -29,7 +29,7 @@ function validate(user) {
     navn: Joi.string().required(),
     Email: Joi.string().required(),
     password: Joi.string().required(),
-    acces: Joi.string().valid("admin", "seller", "client").required(),
+    access: Joi.string().valid("admin", "seller", "client").required(),
   });
   return schema.validate(user);
 }
