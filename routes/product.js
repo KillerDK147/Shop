@@ -34,8 +34,8 @@ route.get("/seller/:id", async (req, res) => {
   res.send(await Produkt.find({ seller: req.params.id }));
 });
 route.delete("/:id", async (req, res) => {
-  if (!prod) return res.status(404).send("Produkter Findes ikke");
   const prod = await Produkt.findById(req.params.id);
+  if (!prod) return res.status(404).send("Produkter Findes ikke");
   cloudinary.config({
     cloud_name: "cloud_name",
     api_key: "cloud_key",
