@@ -4,7 +4,7 @@ const { Produkt, validate } = require("../models/product");
 const mongoose = require("mongoose");
 const isValidObjectId = require("../middelware/validDateObjectId");
 const auth = require("../middelware/auth");
-
+var cloudinary = require("cloudinary").v2;
 route.get("/", async (req, res) => {
   res.send(await Produkt.find());
 });
@@ -33,9 +33,18 @@ route.get("/seller/:id", async (req, res) => {
   if (!sellerId) return res.status(404).send("User not Found");
   res.send(await Produkt.find({ seller: req.params.id }));
 });
-route.delete("/:id", auth, async (req, res) => {
-  const prod = await Produkt.findByIdAndDelete(req.params.id);
+route.delete("/:id", async (req, res) => {
   if (!prod) return res.status(404).send("Produkter Findes ikke");
+  const prod = await Produkt.findById(req.params.id);
+  cloudinary.config({
+    cloud_name: "cloud_name",
+    api_key: "cloud_key",
+    api_secret: "cloud_secret",
+  });
+  cloudinary.uploader.destroy(prod.publicId, function (error, result) {
+    console.log(result, error);
+  });
+  await Produkt.findByIdAndDelete(req.params.id);
   res.send(prod);
 });
 

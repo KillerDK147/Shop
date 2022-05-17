@@ -1,4 +1,7 @@
 {
   "token": "Lhshop",
-  "db": "DB"
+  "db": "DB",
+  "cloud_name": "C-name",
+  "cloud_key": "C-key",
+  "cloud_secret": "C-secret"
 }
