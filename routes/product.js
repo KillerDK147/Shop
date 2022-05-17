@@ -41,7 +41,7 @@ route.delete("/:id", async (req, res) => {
     api_key: "cloud_key",
     api_secret: "cloud_secret",
   });
-  cloudinary.uploader.destroy(prod.publicId, function (error, result) {
+  await cloudinary.uploader.destroy(prod.publicId, function (error, result) {
     console.log(result, error);
   });
   await Produkt.findByIdAndDelete(req.params.id);
